@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Bertoni.MiniProject.Presentation.ViewModels.AlbumVM>
+
+@{ ViewData["Title"] = "Albums"; }
+
+<div class="container">
+    <h1>Albunes</h1>
+
+    <div class="container mt-5">
+        <ul class="list-group" style="width: 1000px;">
+            @foreach (var item in Model)
+            {
+                <li class="list-group-item w-100 d-flex">
+                    <span class="col-md-1 text-muted">@Html.DisplayFor(modelItem => item.Id)</span>
+                    <b class="col-md-8">@Html.DisplayFor(modelItem => item.Title)</b>
+                    <a href="@Url.Action("Photos", "Gallery", new {  id=item.Id })" class="btn btn-outline-primary ml-auto">Visualizar Album</a>
+                </li>           
+            }
+        </ul>
+    </div>
+</div>
